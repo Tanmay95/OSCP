@@ -1,0 +1,3 @@
+objectionapk=${1%.apk}
+/home/b3nac/.local/bin/objection patchapk --source $1 --skip-resources --ignore-nativelibs --gadget-version 12.7.25 
+adb install $objectionapk.objection.apk

