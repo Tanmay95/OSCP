@@ -33,6 +33,6 @@ $Evil-WinRM PS C:\> Invoke-Binary
 $Evil-WinRM PS C:\> Invoke-Binary <kali-Path> run <paramter> 
 ```
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/232e4537-1d24-4830-943c-8a3ac9579e5e/0e507cdc-6a1b-423e-9d48-bc51e2b8c1f4/Untitled.png)
-
 This will help to connect **`metasploit`** this is userfull
+
+https://github.com/tedchen0001/OSCP-Notes/blob/master/AD.md
