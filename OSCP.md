@@ -93,3 +93,8 @@ check for cron jobs as well
 ```
  xfreerdp /cert-ignore /compression /auto-reconnect  /u:michelle /v:172.16.186.21  /w:1600 /h:1000 /drive:test,/home/offsec/Documents/pen-200
 ```
+
+### hashcat 
+```
+sudo hashcat -m 1000 tom_admin.hash /usr/share/wordlists/rockyou.txt --force
+```
