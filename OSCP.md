@@ -98,3 +98,11 @@ check for cron jobs as well
 ```
 sudo hashcat -m 1000 tom_admin.hash /usr/share/wordlists/rockyou.txt --force
 ```
+
+### LDAP
+```
+└─$ nmap -n -sV --script "ldap* and not brute" 192.168.194.122                                                                                                                                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                                                                                                                           
+┌──(offsec㉿kali)-[~/Downloads/]                                                                                                                                                                                                                                                                                                                                                                                            
+└─$ ldapsearch -x -H ldap://192.168.194.122 -b "dc=<domain>,dc=offsec"
+```
