@@ -87,3 +87,9 @@ check for cron jobs as well
 ```
 /etc/cron.daily/<file> 
 ```
+
+### RDP 
+
+```
+ xfreerdp /cert-ignore /compression /auto-reconnect  /u:michelle /v:172.16.186.21  /w:1600 /h:1000 /drive:test,/home/offsec/Documents/pen-200
+```
