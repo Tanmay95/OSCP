@@ -121,3 +121,7 @@ sudo hashcat -m 1000 tom_admin.hash /usr/share/wordlists/rockyou.txt --force
 ```
 john -wordlist=/usr/share/wordlists/rockyou.txt tom_admin.hash –format=NT
 ``` 
+## Wfuzz 
+```
+wfuzz -c -x file,/opt/Seclist/Discovery/WEb-Content/raft-large-files.txt --hc 404 "<url>"
+```
