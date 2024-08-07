@@ -125,3 +125,7 @@ john -wordlist=/usr/share/wordlists/rockyou.txt tom_admin.hash –format=NT
 ```
 wfuzz -c -x file,/opt/Seclist/Discovery/WEb-Content/raft-large-files.txt --hc 404 "<url>"
 ```
+gobuster 
+```
+ sudo gobuster dir -u http://192.168.194.122:49673/ -w  /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+```
