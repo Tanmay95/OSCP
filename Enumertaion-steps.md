@@ -17,6 +17,11 @@ Get-NetComputer | select dnshostname,operatingsystem,operatingsystemversion
 .\PsLoggedon.exe \\files04
 ```
 
+Username recheck 
+```
+Kali$ > ./kerbute userenum --dc <ip>  -d <domain.htb> users.txt
+``` 
+
 ### SPN
 ```
 Get-NetUser -SPN | select samaccountname,serviceprincipalname
