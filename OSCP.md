@@ -154,4 +154,7 @@ ffuf -w  /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u https://
 rpcclient -U '' <ip>
 > enumdomusers                     # dump users
 > queryusergroups <user-rid>
-> querygroup <group-rid> 
+> querygroup <group-rid>
+
+rpcclient --user="" --command=enumprivs -N 10.10.10.1
+```
