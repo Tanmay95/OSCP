@@ -109,6 +109,11 @@ sudo hashcat -m 1000 tom_admin.hash /usr/share/wordlists/rockyou.txt --force
 ```
 ldapsearch -h 192.168.194.122 -x -s base namingcontexts   # gives  namingcontext
 ldapsearch -x -H ldap://192.168.194.122 -b "dc=<namingcontext>,dc=<namingcontext>"
+ldapsearch -x -H ldap://192.168.194.122 -b "dc=<namingcontext>,dc=<namingcontext>" > ladp.txt
+
+cat ldap.txt | grep memberof
+
+ldapsearch -x -H ldap://192.168.194.122 -b "dc=<namingcontext>,dc=<namingcontext>" '(objectClass=User)' sAMAccountName | grep sAMAccountName | awk '{print $2}'
 ```
 ```
 nmap -n -sV --script "ldap* and not brute" 192.168.194.122                                                                                                                                                                               
