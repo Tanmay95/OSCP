@@ -66,7 +66,10 @@ crackmapexec smb target.txt -u <usernmae> -p <password>  --lsa
 #using hash (. dot means local) 
 crackmapexec smb target.txt -u Administrator -H <hash> -d .
 
-crackmapexec smb 192.168.237.172 -u admin -p '' -d vault.offsec --rid-brute 
+crackmapexec smb 192.168.237.172 -u admin -p '' -d vault.offsec --rid-brute
+
+# check for account lockout policy 
+crackmapexec smb 192.168.237.172 -u admin -p '' -d vault.offsec --pass-pol 
 ```
 ## Runascs 
 If creds are found and already logged into the machine then use this command to login as that user. 
@@ -146,3 +149,9 @@ FFUF
 ```
 ffuf -w  /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u https://192.168.174.10:9090/FUZZ
 ```
+### RPCclient 
+```
+rpcclient -U '' <ip>
+> enumdomusers                     # dump users
+> queryusergroups <user-rid>
+> querygroup <group-rid> 
