@@ -107,16 +107,10 @@ sudo hashcat -m 1000 tom_admin.hash /usr/share/wordlists/rockyou.txt --force
 
 ### LDAP
 ```
-└─$ nmap -n -sV --script "ldap* and not brute" 192.168.194.122
-
-                                                                                                                                                                   └─$ ldapsearch -h 192.168.194.122 -x -s base namingcontexts   # gives  namingcontext                                                                                                                                                                                                                                                 
-
-└─$ ldapsearch -x -H ldap://192.168.194.122 -b "dc=<domain>,dc=offsec"
-
-┌──(offsec㉿kali)-[~/Downloads]                                                                                                                                                                                                                                                                                                                                                                                  
-└─$ nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm=vault.offsec,userdb=user.txt <ip> -Pn      # got user.txt from seclist
-
-                                                                            
+nmap -n -sV --script "ldap* and not brute" 192.168.194.122                                                                                                        ldapsearch -h 192.168.194.122 -x -s base namingcontexts   # gives  namingcontext                                                                                   
+ldapsearch -x -H ldap://192.168.194.122 -b "dc=<domain>,dc=offsec"
+                                                       
+nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm=vault.offsec,userdb=user.txt <ip> -Pn      # got user.txt from seclist                                                                  
 ```
 
 ## Hashcat and John 
