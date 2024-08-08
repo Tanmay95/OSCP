@@ -46,7 +46,7 @@ External site https://www.ired.team/offensive-security-experiments/active-direct
 ```
 Get-ObjectAcl -SamAccountName delegate -ResolveGUIDs | ? {$_.ActiveDirectoryRights -eq "GenericAll"}
 ```
-Powerview 
+Powerview - https://book.hacktricks.xyz/windows-hardening/basic-powershell-for-pentesters/powerview
 ```
 Invoke-ACLScanner -ResolveGUIDs | select IdentityReferenceName, ObjectDN, ActiveDirectoryRights | fl
 ```
