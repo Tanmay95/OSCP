@@ -46,7 +46,10 @@ External site https://www.ired.team/offensive-security-experiments/active-direct
 ```
 Get-ObjectAcl -SamAccountName delegate -ResolveGUIDs | ? {$_.ActiveDirectoryRights -eq "GenericAll"}
 ```
-
+Powerview 
+```
+Invoke-ACLScanner -ResolveGUIDs | select IdentityReferenceName, ObjectDN, ActiveDirectoryRights | fl
+```
 ### Domain Shares
 ```
 Find-DomainShare
