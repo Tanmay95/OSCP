@@ -107,7 +107,10 @@ sudo hashcat -m 1000 tom_admin.hash /usr/share/wordlists/rockyou.txt --force
 
 ### LDAP
 ```
-└─$ nmap -n -sV --script "ldap* and not brute" 192.168.194.122                                                                                                                                                                                                                                                                        └─$ ldapsearch -h 192.168.194.122 -x -s base namingcontexts   # gives  namingcontext                                                                                                                                                                                                                                                 
+└─$ nmap -n -sV --script "ldap* and not brute" 192.168.194.122
+
+                                                                                                                                                                   └─$ ldapsearch -h 192.168.194.122 -x -s base namingcontexts   # gives  namingcontext                                                                                                                                                                                                                                                 
+
 └─$ ldapsearch -x -H ldap://192.168.194.122 -b "dc=<domain>,dc=offsec"
 
 ┌──(offsec㉿kali)-[~/Downloads]                                                                                                                                                                                                                                                                                                                                                                                  
