@@ -21,12 +21,32 @@ Username recheck
 ```
 Kali$ > ./kerbute userenum --dc <ip>  -d <domain.htb> users.txt
 ``` 
-
-### SPN
+### LPAS 
 ```
+# Identify if installed to Program Files
+Get-ChildItem 'C:\Program Files\LAPS\CSE\Admpwd.dll'
+Get-ChildItem 'C:\Program Files (x86)\LAPS\CSE\Admpwd.dll'
+dir 'C:\Program Files\LAPS\CSE\'
+dir 'C:\Program Files (x86)\LAPS\CSE\'
+
+# Identify if installed by checking the AD Object
+Get-ADObject 'CN=ms-mcs-admpwd,CN=Schema,CN=Configuration,DC=DC01,DC=Security,CN=Local'
+```
+Enumerate GPO's that have "LAPS" in the name
+```
+# PowerView
+Get-DomainGPO | ? { $_.DisplayName -like "*laps*" } | select DisplayName, Name, GPCFileSysPath | fl
+
+Get-DomainGPO | ? { $_.DisplayName -like "*password solution*" } | select DisplayName, Name, GPCFileSysPath | fl
+### SPN
+
 Get-NetUser -SPN | select samaccountname,serviceprincipalname
 ```
-
+LAPS Configuration file
+```
+Get-Content "\\DC01.Security.local\SysVol\Security.local\Policies\{F2E893C1-725C-4AB9-AE13-39E7BB117C32}\Machine\Registry.pol"
+```
+https://viperone.gitbook.io/pentest-everything/everything/everything-active-directory/laps 
 ### Enumerating Object Permissions
 ```
 GenericAll: Full permissions on object
