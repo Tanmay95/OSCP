@@ -59,6 +59,30 @@ id_rsa.old
 id_rsa.bak
 authorized_keys
 ```
+```
+/etc/passwd
+/etc/shadow
+/etc/hosts
+/etc/group
+/etc/hostname
+/etc/issue
+/etc/mysql/my.cnf
+/etc/httpd/conf/httpd.conf
+/etc/php.ini
+/proc/self/environ
+/proc/self/cmdline
+/proc/self/status
+/var/log/auth.log
+/var/log/secure
+/var/log/apache2/access.log
+/var/log/apache2/error.log
+~/.bash_history
+~/.ssh/id_rsa
+~/.ssh/id_dsa
+/root/.bash_history
+/root/.ssh/id_rsa
+/root/.ssh/id_dsa
+```
 
 ### PDF to text 
 ```
