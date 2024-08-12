@@ -1,5 +1,5 @@
 ### Enumertaion 
-If we found any user on webapplication 
+If we found any user on webapplication port 88 Kerberos 
 ```
 Create wordlist 
 kerbrute userenum --dc 192.168.228.21 -d nagoya-industries.com username.txt
