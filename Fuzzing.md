@@ -2,6 +2,7 @@ Blind fuzz
 ```
 wfuzz -c -w ./lfi2.txt --hw 0 http://10.10.10.10/nav.php?page=../../../../../../../FUZZ
 Seclist -> SecLists/Fuzzing/LFI/LFI-Jhaddix.txt
+wfuzz -c -w /opt/SecLists/Fuzzing/LFI/LFI-Jhaddix.txt --hc 404,403 --hw 0 http://192.168.228.21/FUZZ 
 ```
 
 Wfuzz
@@ -12,7 +13,7 @@ wfuzz -c -x file,/opt/Seclist/Discovery/WEb-Content/burp-parameter-names.txt --h
 ```
 
 gobuster
-````
+```
 sudo gobuster dir -u http://192.168.194.122:49673/ -w  /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
 sudo gobuster dir -u https://192.168.194.122:49673/ -w  /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -k
 sudo gobuster dir -u https://192.168.174.10:9090/ -w  /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -k --exclude-length 43264 
