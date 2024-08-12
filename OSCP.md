@@ -110,7 +110,7 @@ sudo hashcat -m 1000 tom_admin.hash /usr/share/wordlists/rockyou.txt --force
 
 ### LDAP
 ```
-ldapsearch -h 192.168.194.122 -x -s base namingcontexts   # gives  namingcontext
+ldapsearch -H ldap://192.168.228.21 -x -s base namingcontexts    # gives  namingcontext
 ldapsearch -x -H ldap://192.168.194.122 -b "dc=<namingcontext>,dc=<namingcontext>"
 ldapsearch -x -H ldap://192.168.194.122 -b "dc=<namingcontext>,dc=<namingcontext>" > ladp.txt
 
