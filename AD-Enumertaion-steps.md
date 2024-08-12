@@ -1,4 +1,10 @@
 ### Enumertaion 
+If we found any user on webapplication 
+```
+Create wordlist 
+kerbrute userenum --dc 192.168.228.21 -d nagoya-industries.com username.txt
+```
+
 ```
 Get-NetComputer
 Get-NetComputer | select operatingsystem,dnshostname
