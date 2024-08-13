@@ -23,3 +23,8 @@ FFUF
 ```
 ffuf -w  /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u https://192.168.174.10:9090/FUZZ
 ```
+
+Kerbrute 
+```
+└─$ kerbrute  userenum -d hokkaido-aerospace.com --dc 192.168.208.40 /opt/SecLists/Usernames/xato-net-10-million-usernames.txt -t 100
+```
