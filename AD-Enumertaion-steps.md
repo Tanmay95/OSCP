@@ -11,6 +11,10 @@ Get-NetComputer | select operatingsystem,dnshostname
 Get-NetGroup | select cn
 Get-NetUser | select cn,pwdlastset,lastlogon
 ```
+### ACL 
+```
+Find-interestingDomainACL -ResolveGUIDs | ?{$_.IdentityReferenceName -match "user"}
+```
 
 ```
 Find-LocalAdminAccess
