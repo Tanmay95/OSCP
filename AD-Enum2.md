@@ -41,3 +41,8 @@ Get-DomainUser –Properties pwdlastset
 Get-ADUser –Filter * –Properties * | select –First 1 | Get-Member –MemberType *Property | select Name
 Get-ADUser –Filter * –Properties * | select name,@{expression={[datetime]::fromFileTime($_.pwdlastset)}}
 ```
+### Search for a particular string in a user's attributes:
+```
+Get-DomainUser –LDAPFilter "Description=*built*" | Select name,Description
+Get-ADUser –Filter 'Description -like "*built*"' –Properties Description | select name,Description
+```
