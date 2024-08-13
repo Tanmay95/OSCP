@@ -31,6 +31,8 @@ Get-NetComputer | select dnshostname,operatingsystem,operatingsystemversion
 Username recheck 
 ```
 Kali$ > ./kerbute userenum --dc <ip>  -d <domain.htb> users.txt
+
+$ kerbrute  userenum -d hokkaido-aerospace.com --dc 192.168.208.40 /opt/SecLists/Usernames/xato-net-10-million-usernames.txt -t 100
 ``` 
 ### LPAS 
 ```
