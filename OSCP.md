@@ -158,6 +158,7 @@ rpcclient -U '' <ip>
 > enumdomusers                     # dump users
 > queryusergroups <user-rid>
 > querygroup <group-rid>
+rpcclient $> querydispinfo
 
 rpcclient --user="" --command=enumprivs -N 10.10.10.1
 
