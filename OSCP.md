@@ -19,6 +19,9 @@ PS C:\Users\marcus> powershell -ep bypass
 PS C:\Users\marcus> . .\SharpHound.ps1
 
 PS C:\Users\marcus> Invoke-BloodHound -CollectionMethod All
+
+## Kali Linux
+bloodhound-python -u "hrapp-service" -p 'Untimed$Runny' -d hokkaido-aerospace.com -c all --zip -ns 192.168.217.40
 ```
 
 EVIL-WinRM:
