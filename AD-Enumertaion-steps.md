@@ -22,8 +22,9 @@ Get-NetSession -ComputerName web04 -Verbose
 
 Get-NetSession -ComputerName client74
 
+## serach for allcomputer names 
 Get-NetComputer | select dnshostname,operatingsystem,operatingsystemversion
-
+## And try below command: 
 .\PsLoggedon.exe \\files04
 ```
 
