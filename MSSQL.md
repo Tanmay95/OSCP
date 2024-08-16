@@ -8,7 +8,7 @@ sudo crackmapexec mssql 10.10.11.202 --local-auth -u 'PublicUser' -p 'GuestUserC
 -------------------
 # To check module - mssql_priv #
 -----------------------
-sudo crackmapexec mssql 10.10.11.202 --local-auth -u 'PublicUser' -p 'GuestUserCantWrite1' mssql_priv
+sudo crackmapexec mssql 10.10.11.202 --local-auth -u 'PublicUser' -p 'GuestUserCantWrite1' -M mssql_priv
 ```
 ### Login into MSSQL 
 ```
