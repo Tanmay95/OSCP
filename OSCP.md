@@ -124,6 +124,9 @@ ldapsearch -x -H ldap://192.168.194.122 -b "dc=<namingcontext>,dc=<namingcontext
 ```
 nmap -n -sV --script "ldap* and not brute" 192.168.194.122                                                                                                                                                                               
 ldapsearch -x -H ldap://192.168.194.122 -b "dc=<domain>,dc=offsec"
+
+## got from ippsec forest machine
+ldapsearch -x -H ldap://192.168.194.122 -b "dc=<domain>,dc=offsec" '(objectClass=Person)' sAMAccount | grep sAMAccount
                                                        
 nmap -p 88 --script=krb5-enum-users --script-args krb5-enum-users.realm=vault.offsec,userdb=user.txt <ip> -Pn      # got user.txt from seclist
                                                               
