@@ -2,6 +2,17 @@
 ```
 hashcat --example-hashes | grep -i  krb 
 ```
+NTLM hash crack - I have multiple hashes
+```
+htb.local\Administrator:500:aad3b435b51404eeaad3b435b51404ee:32693b11e6aa90eb43d32c72a07ceea6:::
+htb.local\andy:1150:aad3b435b51404eeaad3b435b51404ee:29dfccaf39618ff101de5165b19d524b:::
+
+sudo hashcat -m 1000 hashes-ntlm.txt /usr/share/wordlists/rockyou.txt
+
+**OR**
+
+sudo --user hashcat -m 1000 hashes-ntlm.txt /usr/share/wordlists/rockyou.txt
+```    
 
 ### Cewl
 ```
