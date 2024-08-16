@@ -23,6 +23,11 @@ PS C:\Users\marcus> Invoke-BloodHound -CollectionMethod All
 ## Kali Linux - if wvil-winrm won't work 
 bloodhound-python -u "hrapp-service" -p 'Untimed$Runny' -d hokkaido-aerospace.com -c all --zip -ns 192.168.217.40
 ```
+Bloodhound UI
+```
+1. Shortest Path from owned Principal
+2. outbound object control
+```
 
 EVIL-WinRM:
 
