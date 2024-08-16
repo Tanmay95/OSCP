@@ -1,3 +1,12 @@
+
+### Chisel
+```
+#at kali machine
+chisel server --port 445 --reverse
+#at target machine
+cmd /c chisel.exe <serverIP:port> R:<kali port to forward to>:127.0.0.1:<local port to forward>
+chisel.exe client $KaliIP:445 R:1433:127.0.0.1:1433
+```
 ### Forward RDP from internal host to Attacking Machine on port 1337.
 ssh -L <LocalHost>:<Port>:<IP-To-Forward-From>:<Port> <User>@<IP>
 ssh -L 127.0.0.1:1337:10.200.48.150:3389 root@10.200.48.200 -i id_rsa
