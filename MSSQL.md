@@ -1,7 +1,16 @@
 ### Crackmapexec 
 ```
-sudo crackmapexec mssql 10.10.11.202 -u 'PublicUser' -p 'GuestUserCantWrite1' 
-sudo crackmapexec mssql 10.10.11.202 --local-auth -u 'PublicUser' -p 'GuestUserCantWrite1' # using Local Auth 
+sudo crackmapexec mssql 10.10.11.202 -u 'PublicUser' -p 'GuestUserCantWrite1'
+--------------------
+# using Local Auth #
+--------------------
+sudo crackmapexec mssql 10.10.11.202 --local-auth -u 'PublicUser' -p 'GuestUserCantWrite1'
+-------------------
+# To check module #
+-----------------------
+sudo crackmapexec mssql 10.10.11.202 --local-auth -u 'PublicUser' -p 'GuestUserCantWrite1' mssql_priv
+
+
 ```
 ### Login into MSSQL 
 ```
