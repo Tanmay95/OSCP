@@ -81,7 +81,7 @@ crackmapexec smb 192.168.237.172 -u admin -p '' -d vault.offsec --pass-pol
 
 # MSSQL ->  To check module - mssql_priv #
 -----------------------
-sudo crackmapexec mssql 10.10.11.202 --local-auth -u 'PublicUser' -p 'GuestUserCantWrite1' mssql_priv
+sudo crackmapexec mssql 10.10.11.202 --local-auth -u 'PublicUser' -p 'GuestUserCantWrite1' -M mssql_priv
 ```
 ## Runascs 
 If creds are found and already logged into the machine then use this command to login as that user. 
